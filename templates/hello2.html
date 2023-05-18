@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<br><br><br>
+	{% load static %}
+	<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
+	<img src="{% static 'images/ball.png' %}" alt="歡迎" width="32" height="32">
+	<h1 class="info">歡迎:	{{username}} </h1>
+	<h2>時間:	{{now}} </h2>
+	<h2>骰子1:	{{diceset.dice1}} </h2>
+	<h2>骰子2:	{{diceset.dice2}} </h2>
+	<h2>骰子3:	{{diceset.dice3}} </h2>
+	<h2>次數:	{{local_times}} </h2>
+	<h2>分數:	{{score}} </h2>
+	<h2>等第:
+		{% if score >= 90 %}
+			A
+		{% elif score >= 80 %}
+			B
+		{% elif score >= 70 %}
+			C
+		{% elif score >= 60 %}
+			D
+		{% else %}
+			E
+		{% endif %}
+	</h2>
+{% endblock %}

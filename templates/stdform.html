@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}表單驗證{% endblock %}
+{% block content %}
+<br><br><br>
+	<h2>基本表單驗證</h2>
+	<form action="." method="POST" name="stdform">
+		{% csrf_token %}
+		<table class = "table table-dark table-striped">
+			<tr class="bg-primary">                                                <!--變數名稱-->
+        <th>姓名</th><td class="table-primary">{{ stdform.stdName }}</td>
+      </tr>
+      <tr class="bg-secondary">
+        <th>學號</th><td class="table-secondary">{{ stdform.stdID }}</td>
+      </tr>
+      <tr class="bg-success">
+        <th>性別</th>
+        <td class="table-success text-dark">
+          <input name="stdSex" type="radio" id="stdSex1" value="M" checked="checked" />
+          男生
+          <input name="stdSex" type="radio" id="stdSex2" value="F"/>
+          女生
+        </td>
+      </tr>
+       <tr class="bg-danger">
+        <th>生日</th><td class="table-danger">{{ stdform.stdBirth }}</td>
+      </tr>
+      <tr class="bg-warning">
+        <th>郵件帳號</th><td class="table-warning">{{ stdform.stdEmail }}</td>
+      </tr>
+      <tr class="bg-info"><th>電話</th><td class="table-info">{{ stdform.stdPhone }}</td>
+      </tr>
+      <tr class="bg-light text-dark">
+        <th>地址</th><td class="table-light">{{ stdform.stdAddress }}</td>
+      </tr>
+      <tr>
+        <th colspan="2" align="center">
+          <input type="submit" name="button" id="button" value="送出">
+          <input type="reset" name="button2" id="button2" value="重設"></th>
+      </tr>
+		</table>
+	</form>
+{% endblock %}
